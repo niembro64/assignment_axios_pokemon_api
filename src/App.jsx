@@ -1,5 +1,7 @@
-import logo from "./logo.svg";
+
 import "./App.css";
+
+// fetch all 807 pokemon with a button from https://pokeapi.co
 
 function App() {
   return (

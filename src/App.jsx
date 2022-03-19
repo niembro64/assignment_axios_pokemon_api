@@ -16,16 +16,26 @@ function App() {
   const fetchInfo = (event) => {
     event.preventDefault();
 
-    console.log("calling API");
-    // fetch("https://pokeapi.co/api/v2/pokemon/")
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=807")
-      .then((data) => data.json())
-      .then((res) => {
-        // console.log(res.results);
-        // console.log(res.results[0].name);
-        setPokemon(res.results);
-      })
-      .catch((err) => console.log(err));
+    console.log("calling Axios API")
+    axios
+      .get("https://pokeapi.co/api/v2/pokemon?limit=807")
+      .then((response) => {
+        // console.log(response);
+        console.log(response.data);
+        setPokemon(response.data.results)
+      });
+
+    // console.log("calling API");
+    // // fetch("https://pokeapi.co/api/v2/pokemon/")
+    // fetch("https://pokeapi.co/api/v2/pokemon?limit=807")
+    //   .then((data) => data.json())
+    //   .then((res) => {
+    //     console.log(res);
+    //     // console.log(res.results);
+    //     // console.log(res.results[0].name);
+    //     setPokemon(res.results);
+    //   })
+    //   .catch((err) => console.log(err));
   };
 
   return (
